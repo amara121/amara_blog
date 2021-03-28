@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block titre %}{{titre}}{% endblock titre %}
+
+    {% block content %}
+        <!-- <div class="h-screen w-full">
+            <div class="mt-20 flex flex-col">
+                <div class="text-center mb-12">
+                    <h1>Développeur web</h1>
+                    <h2>front-end et back-end</h2>
+                    <h2>j'ai actuellement <span class="text-blue-600">20ans</span></h2>
+                </div>
+                <div class="block w-11/12 mx-auto bg-green-600 p-2 rounded-t-2xl">
+                    <div class="bg-blue-400 px-1 py-2 rounded-t-2xl">
+                        <span class="relative">
+                            <span class=" w-4 h-4 bg-green-400 absolute rounded-full"></span>
+                            <span class="ml-6 w-5 h-5 bg-yellow-400 absolute rounded-full"></span>
+                            <span class="ml-12 w-5 h-5 bg-red-400 absolute rounded-full"></span>
+                        </span>
+                        <h4 class="ml-20">amarafofana: mon-cv</h4>
+                    </div>
+                    <div>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Est enim voluptatum fugit ullam veniam reiciendis. Iusto beatae, et, quisquam asperiores mollitia, obcaecati adipisci cumque reiciendis odio voluptatum delectus totam eos!
+                    </div>
+                </div>
+            </div>
+        </div> -->
+        {% block block_droit %}
+            <div class="pt-10 md:w-full md:ml-auto md:p-0 md:mt-32 md:mb-0 mt-2 mb-14 lg:mt-20">
+                {% if articles %}
+                    {% for article in articles  %}
+                    {% include "articles/composants/article-unique.html" %}
+                    {% endfor %}
+                {% else %}
+                    <p class="text-center pt-8 md:mt-20 text-3xl opacity-20 lg:pl-28">aucun article pour l'instant</p>
+                {% endif %}
+            </div>
+        {% endblock block_droit %}
+
+    {% endblock content %}

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <article class="flex flex-col relative h-auto mt-11 mb-12 top-0.5 md:flex md:flex-col md:-mb-28 md:mt-32 md:w-full md:ml-auto z-0 lg:flex-row lg:-h-screen lg:relative lg:top-0 lg:w-9/12 lg:h-auto lg:mt-0 lg:mb-0">
+        <div class="flex flex-col mx-2 my-5 px-3 py-6 bg-blue-200 rounded-md lg:w-full">
+            <div class="flex flex-col">
+                <h1 class="text-2xl font-bold inline">{{ article.titre | truncate(80, true, '...') }}</h1>
+                {% if current_user.is_authenticated %}
+                    {% if current_user.username == article.user.username %}
+                        <span>
+                            <a href="{{url_for('articles.supprimer', id=article.id)}}">supprimer</a> |
+                            <a href="{{ url_for('articles.modification', id=article.id) }}">modifier</a>
+                        </span>
+                    {% endif %}
+                {% endif %}
+                <a href="{{ url_for('articles.articles') }}">retour</a>
+            </div>
+            <p class="publication mb-3 text-xs text-gray-600">publié par {{ article.user }} le {{ article.date }}</p>
+            <p>
+                {{ article.contenu }}
+            </p>
+            <a href="{{ url_for('articles.articles') }}" class="text-center mt-5">retour</a>
+        </div>
+    </article>
+{% endblock content %}

@@ -1,0 +1,67 @@
+<nav class="flex fixed bg-blue-400 z-10 bottom-0 w-full md:flex md:fixed md:top-14 md:h-20 lg:top-0 lg:w-9/12 lg:right-0 lg:bg-blue-300 lg:border-b-2 lg:border-dashed">
+    <ul class="flex justify-between w-full text-white text-base">
+        
+        <!--modification du portfolio , icon a changer-->
+        <a href="{{url_for('index')}}" class="flex flex-col flex-grow flex-1 items-center py-1 group hover:bg-blue-400 duration-700 delay-100 hover:text-green-700">
+            <li class="flex flex-col items-center md:flex md:text-center ">
+                <div class="flex flex-col items-center md:text-2xl md:flex-row">
+                    <svg class="h-auto w-6 fill-current text-white group-hover:text-green-700 duration-700 delay-100 md:w-7 " width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M10.7071 2.29289C10.3166 1.90237 9.68342 1.90237 9.29289 2.29289L2.29289 9.29289C1.90237 9.68342 1.90237 10.3166 2.29289 10.7071C2.68342 11.0976 3.31658 11.0976 3.70711 10.7071L4 10.4142V17C4 17.5523 4.44772 18 5 18H7C7.55228 18 8 17.5523 8 17V15C8 14.4477 8.44772 14 9 14H11C11.5523 14 12 14.4477 12 15V17C12 17.5523 12.4477 18 13 18H15C15.5523 18 16 17.5523 16 17V10.4142L16.2929 10.7071C16.6834 11.0976 17.3166 11.0976 17.7071 10.7071C18.0976 10.3166 18.0976 9.68342 17.7071 9.29289L10.7071 2.29289Z"/>
+                    </svg>
+                    Accueil
+                </div>
+                <div class="texte hidden md:block">Bienvenue sur l'accueil</div>
+            </li>
+        </a>
+
+        <!-- <a href="#" class="flex flex-col flex-grow flex-1 items-center py-1 group hover:bg-blue-400 duration-700 delay-100 hover:text-yellow-300">
+            <li class="flex flex-col items-center md:flex md:text-center">
+                <div class="flex flex-col items-center md:text-2xl md:flex-row">
+                    <svg class="h-auto w-6 fill-current text-white group-hover:text-yellow-300 duration-700 delay-100 md:w-7 " width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M18 10C18 13.866 14.4183 17 10 17C8.50836 17 7.11208 16.6428 5.91677 16.0208L2 17L3.3383 13.8773C2.4928 12.7673 2 11.434 2 10C2 6.13401 5.58172 3 10 3C14.4183 3 18 6.13401 18 10ZM7 9H5V11H7V9ZM15 9H13V11H15V9ZM9 9H11V11H9V9Z"/>
+                        </svg>
+                    tchat
+                </div>
+                <div class="texte hidden md:block">Bienvenue sur le tchat</div>
+            </li>
+        </a> -->
+        
+        <a href="{{url_for('articles.articles')}}" class="flex flex-col flex-grow flex-1 items-center py-1 group hover:bg-blue-400 duration-700 delay-100 hover:text-red-600">
+            <li class="flex flex-col items-center">
+                <div class="flex flex-col items-center md:text-2xl md:flex-row">
+                    <svg class="h-auto w-6 fill-current text-white group-hover:text-red-600 duration-700 delay-100 md:w-7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"/>
+                    </svg>
+                    Articles
+                </div>
+                <div class="texte hidden md:block">la liste de nos articles</div>
+            </li>
+        </a>
+        {% if current_user.is_authenticated %}
+            <a href="{{url_for('utilisateurs.deconnexion')}}" class="flex flex-col flex-grow flex-1 items-center py-1 group hover:bg-blue-400 duration-700 delay-100 hover:text-purple-700">
+                <li class="flex flex-col items-center">
+                    <div class="flex flex-col items-center md:text-2xl md:flex-row">
+                        <svg class="h-auto w-6 fill-current text-green-600 group-hover:text-purple-700 duration-700 delay-100 md:w-7" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M18 10C18 14.4183 14.4183 18 10 18C5.58172 18 2 14.4183 2 10C2 5.58172 5.58172 2 10 2C14.4183 2 18 5.58172 18 10ZM12 7C12 8.10457 11.1046 9 10 9C8.89543 9 8 8.10457 8 7C8 5.89543 8.89543 5 10 5C11.1046 5 12 5.89543 12 7ZM9.99993 11C7.98239 11 6.24394 12.195 5.45374 13.9157C6.55403 15.192 8.18265 16 9.99998 16C11.8173 16 13.4459 15.1921 14.5462 13.9158C13.756 12.195 12.0175 11 9.99993 11Z" />
+                        </svg>
+                        deconnexion
+                    </div>
+                    <div class="texte hidden md:block">déconnectez-vous</div>
+                </li>
+            </a>
+        {% else %}
+            <a href="{{url_for('utilisateurs.connexion')}}" class="flex flex-col flex-grow flex-1 items-center py-1 group hover:bg-blue-400 duration-700 delay-100 hover:text-purple-700">
+                <li class="flex flex-col items-center">
+                    <div class="flex flex-col items-center md:text-2xl md:flex-row">
+                        <svg class="h-auto w-6 fill-current text-white group-hover:text-purple-700 duration-700 delay-100 md:w-7" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M18 10C18 14.4183 14.4183 18 10 18C5.58172 18 2 14.4183 2 10C2 5.58172 5.58172 2 10 2C14.4183 2 18 5.58172 18 10ZM12 7C12 8.10457 11.1046 9 10 9C8.89543 9 8 8.10457 8 7C8 5.89543 8.89543 5 10 5C11.1046 5 12 5.89543 12 7ZM9.99993 11C7.98239 11 6.24394 12.195 5.45374 13.9157C6.55403 15.192 8.18265 16 9.99998 16C11.8173 16 13.4459 15.1921 14.5462 13.9158C13.756 12.195 12.0175 11 9.99993 11Z" />
+                        </svg>
+                        Connexion
+                    </div>
+                    <div class="texte hidden md:block">faites partir du groupe</div>
+                </li>
+            </a>
+        {% endif %}
+        
+    </ul>
+</nav>

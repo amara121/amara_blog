@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block titre %}
+    {{titre}}
+{% endblock titre %}
+
+<!--le contenu de ma page d'articles-->
+{% block content %}
+
+    <!--le panel d'utilisateur et les categories-->
+    {% block block_gauche %}
+        {% include 'composants/block-gauche.html' %}
+    {% endblock block_gauche %}
+
+    <!--les articles publiés-->
+    {% block block_droit %}
+        <div class="pt-10 md:w-9/12 md:ml-auto md:p-0 md:mt-32 md:mb-0 mt-16 mb-14 lg:mt-20">
+            {% if articles %}
+                {% for article in articles  %}
+                {% include "articles/composants/article-unique.html" %}
+                {% endfor %}
+            {% else %}
+                <p class="text-center pt-8 md:mt-20 text-3xl opacity-20 lg:pl-28">aucun article pour l'instant</p>
+            {% endif %}
+        </div>
+        
+    {% endblock block_droit %}
+{% endblock content %}
